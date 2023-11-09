@@ -8,11 +8,11 @@ public class Script_PlayerCtrlr : MonoBehaviour
     private CharacterController CharCtrlr;
     public float VelWalk;
     public float VelRun;
+    public float VelRot;
     private float VelocityCtrlr;
-    public float MoveForward;
-    public float InputForward;
-    public float InputRotate;
-    private Vector3 PlayerMovement;
+    private float InputForward;
+    private float InputRotate;
+    private Vector3 PlayerMovement, PlayerRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +28,13 @@ public class Script_PlayerCtrlr : MonoBehaviour
         AnimationsCtrlrKeys();
         PlayerMovement = InputForward * transform.TransformDirection(Vector3.forward) * VelocityCtrlr;
         CharCtrlr.Move(PlayerMovement * Time.deltaTime);
-
+        transform.Rotate(new Vector3(0, InputRotate * VelRot * Time.deltaTime, 0));
     }
 
     void InputMovements() {
         InputForward = Input.GetAxis("Vertical");
         InputRotate = Input.GetAxis("Horizontal");
-        
+        PlayerRotation.y = InputRotate;
     }
 
     void AnimationsCtrlrKeys() {
