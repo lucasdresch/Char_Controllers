@@ -197,12 +197,13 @@ ModelImporter:
     4300010: TOSCOMAN_MESH_OCULOS1
     4300012: TOSCOMAN_MESH_OCULOS2
     4300014: TOSCOMAN_MESH_CORPO
-    7400000: idle
-    7400002: walk
-    7400004: run
+    7400000: Idle
+    7400002: Walk
+    7400004: Run
     7400006: TCHAU
-    7400008: jump
+    7400008: Jump
     7400010: PRESS
+    7400012: Idle
     9500000: //RootNode
     13700000: TOSCOMAN_MESH_CORPO
   externalObjects:
@@ -210,57 +211,57 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 02 - Default
-    second: {fileID: 2100000, guid: bc1e0e9d9ba522b41b87285fd6e94fc7, type: 2}
+    second: {fileID: 2100000, guid: 68c6376262d3cdf4dbeae052d03ae604, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ARMACAO
-    second: {fileID: 2100000, guid: 6aabf5308867b5147bef00aa189ff48e, type: 2}
+    second: {fileID: 2100000, guid: 05e020e98bfcc1947a13b96f405ee370, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ESPARADRAPO
-    second: {fileID: 2100000, guid: 8c417feb1d322b948a878147388deb4a, type: 2}
+    second: {fileID: 2100000, guid: 3f0e7afe8b55a3e4b9cab3d243ecf28a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LENTE
-    second: {fileID: 2100000, guid: 7bd42fa9bde67b24990a4edd51d6a96e, type: 2}
+    second: {fileID: 2100000, guid: 9939feaca45c8744eaa75f5071898452, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 'Material #25E'
-    second: {fileID: 2100000, guid: 0dc4c79da9bf8f745966b61c78188992, type: 2}
+    second: {fileID: 2100000, guid: 157d8d23214f56e4fb08de30c1432c50, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 'Material #28WQE'
-    second: {fileID: 2100000, guid: c51bdad5ebf4846409e28861cba47fce, type: 2}
+    second: {fileID: 2100000, guid: 272a4a4fc83811046bdb5a0f6b3ecfac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: 0b7ad1dc162783a4eb289c9aca616d9a, type: 2}
+    second: {fileID: 2100000, guid: afa91e808dac8bf42a7441b4289f9d01, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: OCULOSAVIADORARMACAO
-    second: {fileID: 2100000, guid: 9980e838a0fb661479a714bda44f9ce5, type: 2}
+    second: {fileID: 2100000, guid: 42c2ca69a9884bb4aad80424a556fa7f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: OCULOSAVIADORLENTES
-    second: {fileID: 2100000, guid: beb51146834116e4c95825479342cfc2, type: 2}
+    second: {fileID: 2100000, guid: 478eb232a735c3740ae1b557c75ded64, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: OCULOSPLASTICO
-    second: {fileID: 2100000, guid: ff6351f255ce1f14fbdf5d262824532a, type: 2}
+    second: {fileID: 2100000, guid: ddba88404c1308445a43501db715e861, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -282,7 +283,175 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: idle
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: walk
+      firstFrame: 61
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 61
+    - serializedVersion: 16
+      name: Run
+      takeName: run
+      firstFrame: 101
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 101
+    - serializedVersion: 16
+      name: TCHAU
+      takeName: TCHAU
+      firstFrame: 121
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Jump
+      takeName: jump
+      firstFrame: 161
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PRESS
+      takeName: PRESS
+      firstFrame: 176
+      lastFrame: 220
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
