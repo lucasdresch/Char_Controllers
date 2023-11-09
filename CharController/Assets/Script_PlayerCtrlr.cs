@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Script_PlayerCtrlr : MonoBehaviour
 {
-    public Animator PlayerAnimator;
+    private Animator PlayerAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,13 @@ public class Script_PlayerCtrlr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
+        AnimationsCtrlrKeys();
+    }
+
+    void AnimationsCtrlrKeys() {
         if (Input.GetKey(KeyCode.LeftShift)) {
             PlayerAnimator.SetFloat("AnimatorVel", Input.GetAxis("Vertical"));
         } else {
@@ -27,5 +35,6 @@ public class Script_PlayerCtrlr : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)) {
             PlayerAnimator.SetTrigger("Bye");
         }
+
     }
 }
