@@ -19,5 +19,13 @@ public class Script_PlayerCtrlr : MonoBehaviour
         } else {
             PlayerAnimator.SetFloat("AnimatorVel", Input.GetAxis("Vertical") / 2.0f);
         }
+
+        if (Input.GetKeyDown(KeyCode.E)) {
+            PlayerAnimator.SetTrigger("Press");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            PlayerAnimator.SetTrigger("Bye");
+        }
     }
 }
