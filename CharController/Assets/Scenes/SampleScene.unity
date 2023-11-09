@@ -2929,6 +2929,7 @@ GameObject:
   - component: {fileID: 4862578428876348887}
   - component: {fileID: 4862578428877446935}
   - component: {fileID: 4862578428865704471}
+  - component: {fileID: 4862578428875178454}
   m_Layer: 0
   m_Name: TOSCOBOY
   m_TagString: Untagged
@@ -2936,6 +2937,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4862578428875178454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4862578428875178453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b85d2d8445d24479d69b7a31c78a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4862578428875178455
 GameObject:
   m_ObjectHideFlags: 0
