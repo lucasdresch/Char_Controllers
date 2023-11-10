@@ -16,16 +16,12 @@ public class Script_PlayerCtrlr : MonoBehaviour
     [Tooltip("Força do pulo")]
     public float Jump;
 
-    [SerializeField]
-    private bool isJumping;         //variável que informa se o player está pulando
-    [SerializeField]
-    private bool isGrounded;         //variável que informa se o player está pulando
+    private bool isGrounded;         //variável que informa se o player está no chao
 
     private float VelocityCtrlr;    //controla a velocidade que o player está andando (caminhar ou correr)
     private float InputForward;     //recebe o input para andar para frente e para trás
     private float InputRotate;      //recebe o input para rotacionar
     //variaveis que recebem os inputs nos vetores para cada ação separada
-    [SerializeField]
     private Vector3 PlayerMovement, PlayerRotation, VectorJump;
 
     // Start is called before the first frame update
@@ -49,26 +45,24 @@ public class Script_PlayerCtrlr : MonoBehaviour
 
         //faz a gravidade
         CharCtrlr.SimpleMove(Physics.gravity);
+        //chama função de checar se está no chão
+        Grounded();
         //chama o função de pular
         InputJump();
     }
-    
+    void Grounded() {                       //função de checar se está no chao
+        isGrounded = CharCtrlr.isGrounded;  //variável isGrounded recebe a checagem do Character controller se for true ou false
+        if (CharCtrlr.isGrounded) {         //se isGrouded for true 
+            VectorJump.y = 0.0f;            //vetor de pulo receberá valor 0
+        }
+    }
     void InputJump() { //recebe o comando de pular
-        if (Input.GetButton("Jump") && isGrounded) {  //se apertou o botão de pulo e isJumping for falso                                          
+        if (Input.GetButton("Jump") && isGrounded) {  //se apertou o botão de pulo e estiver no chao
             VectorJump.y = Jump;    //aplica a força para subir (pular)
-            isJumping = true;       //atribui verdadeiro na variável que informa se está pulando
-            isGrounded = false;
-            print("pulou!");
         }
         //faz a ação de pular
         CharCtrlr.Move(VectorJump * Time.deltaTime);
     }
-    private void OnControllerColliderHit() { //verifca o momento em que houve colisão com algo retornando verdadeiro estver colidindo
-        VectorJump.y = 0.0f;    //atribui o valor 0 ao vetor de pulo
-        isJumping = false;      //atribui falso na variável que informa se está pulando quando tocar no chão
-        isGrounded = true;
-    }
-
     void InputMovements() { //recebe os inputs relacionado a movimentação
         InputForward = Input.GetAxis("Vertical");   //recebe o input para mover para frente no sentido +/-
         InputRotate = Input.GetAxis("Horizontal");  //recebe o input para rotacionar no sentido +/-
@@ -83,7 +77,8 @@ public class Script_PlayerCtrlr : MonoBehaviour
             PlayerAnimator.SetFloat("AnimatorVel", InputForward);
             //insere valor da velocidade de movimento para correr na variavel controladora de velocidade
             VelocityCtrlr = VelRun;
-        } else {
+        } 
+        else {
             //se Shift não estiver apertado
             //insere valor do input na variavel controladora da animção de movimentar para frente no sentido +/-
             //o animator verifica o valor e deve chamar a animação de caminhar pois o valor está dividido pela metade
@@ -93,14 +88,13 @@ public class Script_PlayerCtrlr : MonoBehaviour
         }
 
         if (Input.GetButton("Jump") && isGrounded) {
-            //se apertou o botão jump
-            //insere valor 2 na variavel que controla a animação Jump
-            PlayerAnimator.SetInteger("Jump", 2);
-            print("no chao!");
-        } else {
+                //se apertou o botão jump e está no chao
+                //insere valor 2 na variavel que controla a animação Jump
+                PlayerAnimator.SetInteger("Jump", 2);
+        } else { 
             //se não apertou
-            //insere valor 1 na variavel que controla a animação Jump
-            PlayerAnimator.SetInteger("Jump", 1);
+            //insere valor 0 na variavel que controla a animação Jump
+            PlayerAnimator.SetInteger("Jump", 0);
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
