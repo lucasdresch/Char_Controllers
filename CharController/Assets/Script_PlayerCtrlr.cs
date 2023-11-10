@@ -9,10 +9,13 @@ public class Script_PlayerCtrlr : MonoBehaviour
     public float VelWalk;
     public float VelRun;
     public float VelRot;
+    public float Jump;
+    public float Bounce;
+
     private float VelocityCtrlr;
     private float InputForward;
     private float InputRotate;
-    private Vector3 PlayerMovement, PlayerRotation;
+    private Vector3 PlayerMovement, PlayerRotation, VectorJump;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,20 @@ public class Script_PlayerCtrlr : MonoBehaviour
         PlayerMovement = InputForward * transform.TransformDirection(Vector3.forward) * VelocityCtrlr;
         CharCtrlr.Move(PlayerMovement * Time.deltaTime);
         transform.Rotate(new Vector3(0, InputRotate * VelRot * Time.deltaTime, 0));
+
+        CharCtrlr.SimpleMove(Physics.gravity);
+        InputJump();
+    }
+    
+    void InputJump() {
+        if (Input.GetButton("Jump")) {
+            if (CharCtrlr.isGrounded) {
+                VectorJump.y = Jump;
+            }
+        }
+        CharCtrlr.Move(VectorJump * Time.deltaTime);
+        VectorJump.y -= Bounce * Time.deltaTime;
+
     }
 
     void InputMovements() {
@@ -44,6 +61,11 @@ public class Script_PlayerCtrlr : MonoBehaviour
         } else {
             PlayerAnimator.SetFloat("AnimatorVel", InputForward / 2.0f);
             VelocityCtrlr = VelWalk;
+        }
+        if (Input.GetButton("Jump")) {
+            PlayerAnimator.SetInteger("Jump", 2);
+        } else {
+            PlayerAnimator.SetInteger("Jump", 1);
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {

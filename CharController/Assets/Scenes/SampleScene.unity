@@ -405,11 +405,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b85d2d8445d24479d69b7a31c78a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VelWalk: 1.2
-  VelRun: 2.5
-  MoveForward: 0
-  InputForward: 0
-  InputRotate: 0
+  VelWalk: 0.5
+  VelRun: 3
+  VelRot: 150
+  Jump: 5
+  Bounce: 6
 --- !u!4 &1387842626
 Transform:
   m_ObjectHideFlags: 0
