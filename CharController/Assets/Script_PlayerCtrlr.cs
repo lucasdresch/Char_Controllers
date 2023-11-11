@@ -91,7 +91,8 @@ public class Script_PlayerCtrlr : MonoBehaviour
                 //se apertou o botão jump e está no chao
                 //insere valor 2 na variavel que controla a animação Jump
                 PlayerAnimator.SetInteger("Jump", 2);
-        } else { 
+        } 
+        else { 
             //se não apertou
             //insere valor 0 na variavel que controla a animação Jump
             PlayerAnimator.SetInteger("Jump", 0);
