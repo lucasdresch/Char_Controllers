@@ -658,8 +658,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 8.07, z: -9.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1177401362}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -16.202002, y: 0, z: 0}
 --- !u!1 &325119892
 GameObject:
@@ -1076,7 +1076,7 @@ Transform:
   m_Children:
   - {fileID: 1750345208}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &444880284
 MonoBehaviour:
@@ -1092,8 +1092,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VelWalk: 0.5
   VelRun: 3
-  VelRot: 1
+  VelRot: 3
   JumpForce: 5
+  RunKey: 304
+  ActionKey1: 113
+  ActionKey2: 101
 --- !u!1 &449950733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,7 +2127,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 317842774}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

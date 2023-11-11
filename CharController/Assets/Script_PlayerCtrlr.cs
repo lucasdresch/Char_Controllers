@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Script_PlayerCtrlr : MonoBehaviour
 {
     //VARIAVEIS
@@ -37,7 +36,7 @@ public class Script_PlayerCtrlr : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         PlayerAnimator = GetComponent<Animator>();          //pega o componente Animator do objeto que tem o script
-        CharCtrlr = GetComponent<CharacterController>();    //pega o componente CharacterController do objeto que tem o script
+        CharCtrlr = GetComponent<CharacterController>();    //pega o componente CharacterController do objeto que tem o script 
     }
 
     // Update is called once per frame
