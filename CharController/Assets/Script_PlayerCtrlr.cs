@@ -16,11 +16,21 @@ public class Script_PlayerCtrlr : MonoBehaviour
     [Tooltip("Força do pulo")]
     public float Jump;
 
-    private bool isGrounded;         //variável que informa se o player está no chao
+    private bool isGrounded;        //variável que informa se o player está no chao
+    private bool isJumping;         //variável que informa se o player está pulando
 
     private float VelocityCtrlr;    //controla a velocidade que o player está andando (caminhar ou correr)
     private float InputForward;     //recebe o input para andar para frente e para trás
     private float InputRotate;      //recebe o input para rotacionar
+    
+    private bool InputRun;      //recebe o input de correr
+    private bool InputAction1;  //recebe o input da ação 1
+    private bool InputAction2;  //recebe o input de ação 2
+
+    public KeyCode RunKey;      //recebe a tecla de correr
+    public KeyCode ActionKey1;  //recebe a tecla de ação 1
+    public KeyCode ActionKey2;  //recebe a tecla de ação 2
+
     //variaveis que recebem os inputs nos vetores para cada ação separada
     private Vector3 PlayerMovement, PlayerRotation, VectorJump;
 
@@ -49,6 +59,8 @@ public class Script_PlayerCtrlr : MonoBehaviour
         Grounded();
         //chama o função de pular
         InputJump();
+        //chama a função das ações
+        InputActions();
     }
     void Grounded() {                       //função de checar se está no chao
         isGrounded = CharCtrlr.isGrounded;  //variável isGrounded recebe a checagem do Character controller se for true ou false
@@ -56,12 +68,17 @@ public class Script_PlayerCtrlr : MonoBehaviour
             VectorJump.y = 0.0f;            //vetor de pulo receberá valor 0
         }
     }
-    void InputJump() { //recebe o comando de pular
-        if (Input.GetButton("Jump") && isGrounded) {  //se apertou o botão de pulo e estiver no chao
-            VectorJump.y = Jump;    //aplica a força para subir (pular)
+    void InputJump() {                                      //função que faz a ação de pular
+        if (Input.GetButton("Jump") && isGrounded) {        //se está apertando o botão de pulo e está no chão, então...
+            isJumping = true;                               //informa a varável que está pulando
+            VectorJump.y = Jump;                            //insere no vetor de controle de pulo o valor da força do pulo
         }
-        //faz a ação de pular
-        CharCtrlr.Move(VectorJump * Time.deltaTime);
+        CharCtrlr.Move(VectorJump * Time.deltaTime);        //aplica a força para o personagem subir/mover no eixo Y (pular)
+    }
+    void InputActions() {                               //função que faz as ações
+        InputRun = Input.GetKey(RunKey);                //recebe o input de correr
+        InputAction1 = Input.GetKeyDown(ActionKey1);    //recebe o input da ação 1
+        InputAction2 = Input.GetKeyDown(ActionKey2);    //recebe o input da ação 2
     }
     void InputMovements() { //recebe os inputs relacionado a movimentação
         InputForward = Input.GetAxis("Vertical");   //recebe o input para mover para frente no sentido +/-
@@ -70,8 +87,8 @@ public class Script_PlayerCtrlr : MonoBehaviour
     }
 
     void AnimationsCtrlrKeys() { //função que recebe os inputs de movimento para animar o player
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            //se Shift estiver apertado
+        if (InputRun) {
+            //se botão de correr estiver apertado
             //insere valor do input na variavel controladora da animção de movimentar para frente no sentido +/- que está abaixo
             //o animator verifica o valor e deve chamar a animação de correr
             PlayerAnimator.SetFloat("AnimatorVel", InputForward);
@@ -87,10 +104,11 @@ public class Script_PlayerCtrlr : MonoBehaviour
             VelocityCtrlr = VelWalk;
         }
 
-        if (Input.GetButton("Jump") && isGrounded) {
-                //se apertou o botão jump e está no chao
-                //insere valor 2 na variavel que controla a animação Jump
-                PlayerAnimator.SetInteger("Jump", 2);
+        if (isJumping) {
+            //se está pulando, então...
+            //insere valor 2 na variavel que controla a animação Jump para animar Jump
+            PlayerAnimator.SetInteger("Jump", 2);
+            isJumping = false; //informa que está pulando é falso
         } 
         else { 
             //se não apertou
@@ -98,14 +116,14 @@ public class Script_PlayerCtrlr : MonoBehaviour
             PlayerAnimator.SetInteger("Jump", 0);
         }
 
-        if (Input.GetKeyDown(KeyCode.E)) {
-            //se apertar E
+        if (InputAction1) {
+            //se apertar botão da ação 1
             //ativa a variavel de animação trigger de animação Press
             PlayerAnimator.SetTrigger("Press");
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            //se apertou Q
+        if (InputAction2) {
+            //se apertou botão da ação 2
             //ativa a variavel de animação trigger de animação Bye
             PlayerAnimator.SetTrigger("Bye");
         }

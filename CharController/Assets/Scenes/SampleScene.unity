@@ -1043,6 +1043,9 @@ MonoBehaviour:
   VelRun: 3
   VelRot: 150
   Jump: 5
+  RunKey: 304
+  ActionKey1: 113
+  ActionKey2: 101
 --- !u!143 &444880281
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1110,7 +1113,10 @@ MonoBehaviour:
   VelWalk: 0.5
   VelRun: 3
   VelRot: 1
-  JumpForce: 0
+  JumpForce: 5
+  RunKey: 304
+  ActionKey1: 113
+  ActionKey2: 101
 --- !u!1 &449950733
 GameObject:
   m_ObjectHideFlags: 0

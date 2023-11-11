@@ -37,6 +37,12 @@ public class Script_PlayerCtrlrNormalized : MonoBehaviour
 	private bool InputButton_V; //variavel usada para informar se está movendo nas verticais
 	private bool InputButton_H; //variavel usada para informar se está movendo nas horizontais
 	private bool InputKey_Run;  //variavel usada para informar se está correndo
+	private bool InputAction1;  //recebe o input da ação 1
+	private bool InputAction2;  //recebe o input de ação 2
+
+	public KeyCode RunKey;      //recebe a tecla de correr
+	public KeyCode ActionKey1;  //recebe a tecla de ação 1
+	public KeyCode ActionKey2;  //recebe a tecla de ação 2
 
 	// Use this for initialization
 	void Start()
@@ -51,7 +57,8 @@ public class Script_PlayerCtrlrNormalized : MonoBehaviour
 	{
 		InputMovements();		//função que recebe os inputs de movimento
 		AnimationCtrlrKeys();	//função que chama as animações
-		InputJump();			//função que chama a mecanica do pulo
+		InputJump();            //função que chama a mecanica do pulo
+		InputActions();			//chama a função das ações
 
 		//pega a direção que a vcamera está olhando
 		frenteCamera = Vector3.Scale(transformCamera.forward, new Vector3(1, 0, 1)).normalized;
@@ -96,8 +103,14 @@ public class Script_PlayerCtrlrNormalized : MonoBehaviour
 		InputAxis_H = Input.GetAxis("Horizontal");          //recebe o valor do input horizontal
 		InputButton_V = Input.GetButton("Vertical");		//informa se é verdadeiro o movimento vertical
 		InputButton_H = Input.GetButton("Horizontal");      //informa se é verdadeiro o movimento horizontal
-		InputKey_Run = Input.GetKey(KeyCode.LeftShift);     //informa se é está aperntado o botão de correr
+		InputKey_Run = Input.GetKey(RunKey);				//informa se é está aperntado o botão de correr
 	}
+
+	void InputActions() {                               //função que faz as ações
+		InputAction1 = Input.GetKeyDown(ActionKey1);    //recebe o input da ação 1
+		InputAction2 = Input.GetKeyDown(ActionKey2);    //recebe o input da ação 2
+	}
+
 
 	void AnimationCtrlrKeys() { // função que controla as animações do personagem
 
@@ -118,11 +131,11 @@ public class Script_PlayerCtrlrNormalized : MonoBehaviour
 			VelocityCtrlr = VelWalk;                                    //o controlador de velocidade de movimento recebe velcidade de caminhar
 		}
 		//faz a animação press
-		if (Input.GetKeyDown(KeyCode.E)) {
+		if (Input.GetKeyDown(ActionKey1)) {
 			PlayerAnimator.SetTrigger("Press");
 		}
 		//faz a animação bye
-		if (Input.GetKeyDown(KeyCode.Q)) {
+		if (Input.GetKeyDown(ActionKey2)) {
 			PlayerAnimator.SetTrigger("Bye");
 		}
 	}
